@@ -1,0 +1,6 @@
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/AFNetworking" "${PODS_ROOT}/Headers/Public/CWPopup" "${PODS_ROOT}/Headers/Public/DFImageManager" "${PODS_ROOT}/Headers/Public/DRPLoadingSpinner" "${PODS_ROOT}/Headers/Public/PureLayout" "${PODS_ROOT}/Headers/Public/SVPullToRefresh"
+LIBRARY_SEARCH_PATHS = $(inherited) "$CONFIGURATION_BUILD_DIR/AFNetworking" "$CONFIGURATION_BUILD_DIR/CWPopup" "$CONFIGURATION_BUILD_DIR/DFImageManager" "$CONFIGURATION_BUILD_DIR/DRPLoadingSpinner" "$CONFIGURATION_BUILD_DIR/PureLayout" "$CONFIGURATION_BUILD_DIR/SVPullToRefresh"
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/AFNetworking" -isystem "${PODS_ROOT}/Headers/Public/CWPopup" -isystem "${PODS_ROOT}/Headers/Public/DFImageManager" -isystem "${PODS_ROOT}/Headers/Public/DRPLoadingSpinner" -isystem "${PODS_ROOT}/Headers/Public/PureLayout" -isystem "${PODS_ROOT}/Headers/Public/SVPullToRefresh"
+OTHER_LDFLAGS = $(inherited) -ObjC -l"AFNetworking" -l"CWPopup" -l"DFImageManager" -l"DRPLoadingSpinner" -l"PureLayout" -l"SVPullToRefresh" -framework "CoreGraphics" -framework "MobileCoreServices" -framework "QuartzCore" -framework "Security" -framework "SystemConfiguration"
+PODS_ROOT = ${SRCROOT}/Pods

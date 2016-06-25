@@ -1,0 +1,1 @@
+../../../DFImageManager/Pod/Source/Core/Protocols/DFImageManaging.h

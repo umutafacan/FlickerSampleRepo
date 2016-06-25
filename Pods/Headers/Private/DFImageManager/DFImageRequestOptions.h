@@ -1,0 +1,1 @@
+../../../DFImageManager/Pod/Source/Core/Support/DFImageRequestOptions.h

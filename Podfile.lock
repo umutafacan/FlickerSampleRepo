@@ -1,0 +1,52 @@
+PODS:
+  - AFNetworking (2.6.3):
+    - AFNetworking/NSURLConnection (= 2.6.3)
+    - AFNetworking/NSURLSession (= 2.6.3)
+    - AFNetworking/Reachability (= 2.6.3)
+    - AFNetworking/Security (= 2.6.3)
+    - AFNetworking/Serialization (= 2.6.3)
+    - AFNetworking/UIKit (= 2.6.3)
+  - AFNetworking/NSURLConnection (2.6.3):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.6.3):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.6.3)
+  - AFNetworking/Security (2.6.3)
+  - AFNetworking/Serialization (2.6.3)
+  - AFNetworking/UIKit (2.6.3):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+  - CWPopup (1.2.6)
+  - DFImageManager (2.0.1):
+    - DFImageManager/Core (= 2.0.1)
+    - DFImageManager/UI (= 2.0.1)
+  - DFImageManager/Core (2.0.1)
+  - DFImageManager/UI (2.0.1):
+    - DFImageManager/Core
+  - DRPLoadingSpinner (0.1.0)
+  - PureLayout (3.0.1)
+  - SVPullToRefresh (0.4.1)
+
+DEPENDENCIES:
+  - AFNetworking (~> 2.0)
+  - CWPopup (~> 1.2.4)
+  - DFImageManager
+  - DRPLoadingSpinner
+  - PureLayout
+  - SVPullToRefresh
+
+SPEC CHECKSUMS:
+  AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
+  CWPopup: 3f8b0704a9914813d90372d66525d31f24b27d49
+  DFImageManager: c19b62a3e15d89f3532ae6fdb222531ec7e811b1
+  DRPLoadingSpinner: 47cb1c2e47ae2617c87c8340075a24d94a48d879
+  PureLayout: f35f5384c9c4e4479df041dbe33ad7577b71ddfb
+  SVPullToRefresh: ba2e718695a43253d8bea6852d2960097dc15d8c
+
+PODFILE CHECKSUM: af772c18a40519d7e6be6e71512cb834543091df
+
+COCOAPODS: 1.0.0.beta.6

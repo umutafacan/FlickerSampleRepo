@@ -1,0 +1,1 @@
+../../../DFImageManager/Pod/Source/Core/Processing/DFImageProcessor.h

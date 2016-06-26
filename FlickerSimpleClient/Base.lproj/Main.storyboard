@@ -60,13 +60,23 @@
                                 </constraints>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Wzw-Xr-mu4">
+                                <rect key="frame" x="200" y="63" width="200" height="337"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="337" id="rWJ-Cy-Euc"/>
+                                    <constraint firstAttribute="width" constant="200" id="z0D-29-oki"/>
+                                </constraints>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Wzw-Xr-mu4" firstAttribute="top" secondItem="Nnf-Fc-a6p" secondAttribute="bottom" constant="-1" id="3vS-b2-U48"/>
                             <constraint firstAttribute="trailingMargin" secondItem="PDv-15-M4o" secondAttribute="trailing" constant="-20" id="6IE-mX-CTN"/>
                             <constraint firstItem="Nnf-Fc-a6p" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="71I-ib-sGm"/>
                             <constraint firstItem="PDv-15-M4o" firstAttribute="top" secondItem="Nnf-Fc-a6p" secondAttribute="bottom" id="Cgi-2u-aRp"/>
                             <constraint firstItem="PDv-15-M4o" firstAttribute="top" secondItem="Nnf-Fc-a6p" secondAttribute="bottom" id="Ubk-OB-5Vo"/>
+                            <constraint firstItem="Wzw-Xr-mu4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="WJz-yx-f5o"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Nnf-Fc-a6p" secondAttribute="trailing" constant="-20" id="b3u-GN-Sow"/>
                             <constraint firstItem="PDv-15-M4o" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="ke9-wf-yZq"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="PDv-15-M4o" secondAttribute="bottom" id="lff-Jl-IYr"/>
@@ -75,6 +85,9 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="PDv-15-M4o" id="Har-ne-QYl"/>
+                        <outlet property="heightTableView" destination="rWJ-Cy-Euc" id="6Uv-sA-kBd"/>
+                        <outlet property="searchBar" destination="Nnf-Fc-a6p" id="0ga-gT-vEt"/>
+                        <outlet property="tableViewSearch" destination="Wzw-Xr-mu4" id="AiV-16-O8S"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

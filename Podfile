@@ -11,6 +11,8 @@ pod 'SVPullToRefresh'
 pod 'DRPLoadingSpinner'
 pod 'CWPopup', '~> 1.2.4'
 pod 'DFImageManager'
+pod 'IQKeyboardManager'
+
 
 # Networking
 pod 'AFNetworking', '~> 2.0'

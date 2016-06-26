@@ -10,6 +10,17 @@
 #import <AFNetworking/AFNetworking.h>
 
 
+typedef  void (^completion) (void);
+typedef void (^completionRecentPhotos) (FARecentPhotosResponse *response);
+typedef void (^completionSearchPhotos) (FARecentPhotosResponse *response);
+typedef void  (^completionReleatedTags)(FAReleatedTagResponse *response);
+typedef void  (^completionHotTags)(FAHotTagResponse *response);
+
+typedef void  (^failure)(NSError *error);
+
+
 @interface ServiceManager : NSObject
+
+
 
 @end

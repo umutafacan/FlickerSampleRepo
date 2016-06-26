@@ -15,6 +15,14 @@
 		4CA732D51D1D524600C93163 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CA732D41D1D524600C93163 /* Assets.xcassets */; };
 		4CA732D81D1D524600C93163 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CA732D61D1D524600C93163 /* LaunchScreen.storyboard */; };
 		4CD101201D1F137B001FDA97 /* ServiceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CD1011F1D1F137B001FDA97 /* ServiceManager.m */; };
+		4CDBED2A1D1F3CBB0003E6A7 /* FAPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CDBED251D1F3CBB0003E6A7 /* FAPhoto.m */; };
+		4CDBED2B1D1F3CBB0003E6A7 /* FAPhotos.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CDBED271D1F3CBB0003E6A7 /* FAPhotos.m */; };
+		4CDBED2C1D1F3CBB0003E6A7 /* FARecentPhotosResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CDBED291D1F3CBB0003E6A7 /* FARecentPhotosResponse.m */; };
+		4CDBED341D1F526F0003E6A7 /* FAReleatedTagResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CDBED2F1D1F526F0003E6A7 /* FAReleatedTagResponse.m */; };
+		4CDBED351D1F526F0003E6A7 /* FATag.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CDBED311D1F526F0003E6A7 /* FATag.m */; };
+		4CDBED361D1F526F0003E6A7 /* FATags.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CDBED331D1F526F0003E6A7 /* FATags.m */; };
+		4CDBED3B1D1F56960003E6A7 /* FAHotTagResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CDBED381D1F56960003E6A7 /* FAHotTagResponse.m */; };
+		4CDBED3C1D1F56960003E6A7 /* FAHottags.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CDBED3A1D1F56960003E6A7 /* FAHottags.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +38,24 @@
 		4CA732D91D1D524600C93163 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CD1011E1D1F137B001FDA97 /* ServiceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceManager.h; sourceTree = "<group>"; };
 		4CD1011F1D1F137B001FDA97 /* ServiceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceManager.m; sourceTree = "<group>"; };
+		4CDBED231D1F3CBB0003E6A7 /* DataModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataModels.h; sourceTree = "<group>"; };
+		4CDBED241D1F3CBB0003E6A7 /* FAPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FAPhoto.h; sourceTree = "<group>"; };
+		4CDBED251D1F3CBB0003E6A7 /* FAPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FAPhoto.m; sourceTree = "<group>"; };
+		4CDBED261D1F3CBB0003E6A7 /* FAPhotos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FAPhotos.h; sourceTree = "<group>"; };
+		4CDBED271D1F3CBB0003E6A7 /* FAPhotos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FAPhotos.m; sourceTree = "<group>"; };
+		4CDBED281D1F3CBB0003E6A7 /* FARecentPhotosResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FARecentPhotosResponse.h; sourceTree = "<group>"; };
+		4CDBED291D1F3CBB0003E6A7 /* FARecentPhotosResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FARecentPhotosResponse.m; sourceTree = "<group>"; };
+		4CDBED2D1D1F3EDF0003E6A7 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		4CDBED2E1D1F526F0003E6A7 /* FAReleatedTagResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FAReleatedTagResponse.h; sourceTree = "<group>"; };
+		4CDBED2F1D1F526F0003E6A7 /* FAReleatedTagResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FAReleatedTagResponse.m; sourceTree = "<group>"; };
+		4CDBED301D1F526F0003E6A7 /* FATag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FATag.h; sourceTree = "<group>"; };
+		4CDBED311D1F526F0003E6A7 /* FATag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FATag.m; sourceTree = "<group>"; };
+		4CDBED321D1F526F0003E6A7 /* FATags.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FATags.h; sourceTree = "<group>"; };
+		4CDBED331D1F526F0003E6A7 /* FATags.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FATags.m; sourceTree = "<group>"; };
+		4CDBED371D1F56960003E6A7 /* FAHotTagResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FAHotTagResponse.h; sourceTree = "<group>"; };
+		4CDBED381D1F56960003E6A7 /* FAHotTagResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FAHotTagResponse.m; sourceTree = "<group>"; };
+		4CDBED391D1F56960003E6A7 /* FAHottags.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FAHottags.h; sourceTree = "<group>"; };
+		4CDBED3A1D1F56960003E6A7 /* FAHottags.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FAHottags.m; sourceTree = "<group>"; };
 		4E58D6B0DBFD232313A7EB15 /* libPods-FlickerSimpleClient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FlickerSimpleClient.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D2A5A5647E70CBC36C20D9B /* Pods-FlickerSimpleClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlickerSimpleClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FlickerSimpleClient/Pods-FlickerSimpleClient.debug.xcconfig"; sourceTree = "<group>"; };
 		AE65D199AB306D28E631F4F9 /* Pods-FlickerSimpleClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlickerSimpleClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-FlickerSimpleClient/Pods-FlickerSimpleClient.release.xcconfig"; sourceTree = "<group>"; };
@@ -91,6 +117,7 @@
 				4CA732CE1D1D524600C93163 /* ViewController.h */,
 				4CA732CF1D1D524600C93163 /* ViewController.m */,
 				4CA732D11D1D524600C93163 /* Main.storyboard */,
+				4CDBED2D1D1F3EDF0003E6A7 /* PrefixHeader.pch */,
 				4CA732D41D1D524600C93163 /* Assets.xcassets */,
 				4CA732D61D1D524600C93163 /* LaunchScreen.storyboard */,
 				4CA732D91D1D524600C93163 /* Info.plist */,
@@ -112,8 +139,33 @@
 			children = (
 				4CD1011E1D1F137B001FDA97 /* ServiceManager.h */,
 				4CD1011F1D1F137B001FDA97 /* ServiceManager.m */,
+				4CDBED221D1F3CBB0003E6A7 /* FlickrModels */,
 			);
 			name = Service;
+			sourceTree = "<group>";
+		};
+		4CDBED221D1F3CBB0003E6A7 /* FlickrModels */ = {
+			isa = PBXGroup;
+			children = (
+				4CDBED371D1F56960003E6A7 /* FAHotTagResponse.h */,
+				4CDBED381D1F56960003E6A7 /* FAHotTagResponse.m */,
+				4CDBED391D1F56960003E6A7 /* FAHottags.h */,
+				4CDBED3A1D1F56960003E6A7 /* FAHottags.m */,
+				4CDBED231D1F3CBB0003E6A7 /* DataModels.h */,
+				4CDBED2E1D1F526F0003E6A7 /* FAReleatedTagResponse.h */,
+				4CDBED2F1D1F526F0003E6A7 /* FAReleatedTagResponse.m */,
+				4CDBED301D1F526F0003E6A7 /* FATag.h */,
+				4CDBED311D1F526F0003E6A7 /* FATag.m */,
+				4CDBED321D1F526F0003E6A7 /* FATags.h */,
+				4CDBED331D1F526F0003E6A7 /* FATags.m */,
+				4CDBED241D1F3CBB0003E6A7 /* FAPhoto.h */,
+				4CDBED251D1F3CBB0003E6A7 /* FAPhoto.m */,
+				4CDBED261D1F3CBB0003E6A7 /* FAPhotos.h */,
+				4CDBED271D1F3CBB0003E6A7 /* FAPhotos.m */,
+				4CDBED281D1F3CBB0003E6A7 /* FARecentPhotosResponse.h */,
+				4CDBED291D1F3CBB0003E6A7 /* FARecentPhotosResponse.m */,
+			);
+			path = FlickrModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -237,10 +289,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CDBED2C1D1F3CBB0003E6A7 /* FARecentPhotosResponse.m in Sources */,
 				4CA732D01D1D524600C93163 /* ViewController.m in Sources */,
+				4CDBED341D1F526F0003E6A7 /* FAReleatedTagResponse.m in Sources */,
+				4CDBED2B1D1F3CBB0003E6A7 /* FAPhotos.m in Sources */,
 				4CA732CD1D1D524600C93163 /* AppDelegate.m in Sources */,
 				4CA732CA1D1D524600C93163 /* main.m in Sources */,
+				4CDBED351D1F526F0003E6A7 /* FATag.m in Sources */,
+				4CDBED3C1D1F56960003E6A7 /* FAHottags.m in Sources */,
 				4CD101201D1F137B001FDA97 /* ServiceManager.m in Sources */,
+				4CDBED2A1D1F3CBB0003E6A7 /* FAPhoto.m in Sources */,
+				4CDBED3B1D1F56960003E6A7 /* FAHotTagResponse.m in Sources */,
+				4CDBED361D1F526F0003E6A7 /* FATags.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,9 +413,11 @@
 			baseConfigurationReference = 5D2A5A5647E70CBC36C20D9B /* Pods-FlickerSimpleClient.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/FlickerSimpleClient/PrefixHeader.pch";
 				INFOPLIST_FILE = FlickerSimpleClient/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.happyhours.FlickerSimpleClient;
+				PRODUCT_BUNDLE_IDENTIFIER = com.umutafacan.FlickerSimpleClient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -365,9 +427,11 @@
 			baseConfigurationReference = AE65D199AB306D28E631F4F9 /* Pods-FlickerSimpleClient.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/FlickerSimpleClient/PrefixHeader.pch";
 				INFOPLIST_FILE = FlickerSimpleClient/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.happyhours.FlickerSimpleClient;
+				PRODUCT_BUNDLE_IDENTIFIER = com.umutafacan.FlickerSimpleClient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

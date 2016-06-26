@@ -23,6 +23,7 @@
 		4CDBED361D1F526F0003E6A7 /* FATags.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CDBED331D1F526F0003E6A7 /* FATags.m */; };
 		4CDBED3B1D1F56960003E6A7 /* FAHotTagResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CDBED381D1F56960003E6A7 /* FAHotTagResponse.m */; };
 		4CDBED3C1D1F56960003E6A7 /* FAHottags.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CDBED3A1D1F56960003E6A7 /* FAHottags.m */; };
+		4CDBED411D1FE6B60003E6A7 /* PhotoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CDBED401D1FE6B60003E6A7 /* PhotoCollectionViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,8 @@
 		4CDBED381D1F56960003E6A7 /* FAHotTagResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FAHotTagResponse.m; sourceTree = "<group>"; };
 		4CDBED391D1F56960003E6A7 /* FAHottags.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FAHottags.h; sourceTree = "<group>"; };
 		4CDBED3A1D1F56960003E6A7 /* FAHottags.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FAHottags.m; sourceTree = "<group>"; };
+		4CDBED3F1D1FE6B60003E6A7 /* PhotoCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCollectionViewCell.h; sourceTree = "<group>"; };
+		4CDBED401D1FE6B60003E6A7 /* PhotoCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoCollectionViewCell.m; sourceTree = "<group>"; };
 		4E58D6B0DBFD232313A7EB15 /* libPods-FlickerSimpleClient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FlickerSimpleClient.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D2A5A5647E70CBC36C20D9B /* Pods-FlickerSimpleClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlickerSimpleClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FlickerSimpleClient/Pods-FlickerSimpleClient.debug.xcconfig"; sourceTree = "<group>"; };
 		AE65D199AB306D28E631F4F9 /* Pods-FlickerSimpleClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlickerSimpleClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-FlickerSimpleClient/Pods-FlickerSimpleClient.release.xcconfig"; sourceTree = "<group>"; };
@@ -112,10 +115,11 @@
 			isa = PBXGroup;
 			children = (
 				4CD1011D1D1F1365001FDA97 /* Service */,
+				4CDBED3E1D1FE68A0003E6A7 /* Views */,
+				4CDBED3D1D1F69B60003E6A7 /* Controllers */,
+				4CDBED421D1FEB1F0003E6A7 /* Utils */,
 				4CA732CB1D1D524600C93163 /* AppDelegate.h */,
 				4CA732CC1D1D524600C93163 /* AppDelegate.m */,
-				4CA732CE1D1D524600C93163 /* ViewController.h */,
-				4CA732CF1D1D524600C93163 /* ViewController.m */,
 				4CA732D11D1D524600C93163 /* Main.storyboard */,
 				4CDBED2D1D1F3EDF0003E6A7 /* PrefixHeader.pch */,
 				4CA732D41D1D524600C93163 /* Assets.xcassets */,
@@ -166,6 +170,31 @@
 				4CDBED291D1F3CBB0003E6A7 /* FARecentPhotosResponse.m */,
 			);
 			path = FlickrModels;
+			sourceTree = "<group>";
+		};
+		4CDBED3D1D1F69B60003E6A7 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4CA732CE1D1D524600C93163 /* ViewController.h */,
+				4CA732CF1D1D524600C93163 /* ViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		4CDBED3E1D1FE68A0003E6A7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4CDBED3F1D1FE6B60003E6A7 /* PhotoCollectionViewCell.h */,
+				4CDBED401D1FE6B60003E6A7 /* PhotoCollectionViewCell.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		4CDBED421D1FEB1F0003E6A7 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -290,6 +319,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4CDBED2C1D1F3CBB0003E6A7 /* FARecentPhotosResponse.m in Sources */,
+				4CDBED411D1FE6B60003E6A7 /* PhotoCollectionViewCell.m in Sources */,
 				4CA732D01D1D524600C93163 /* ViewController.m in Sources */,
 				4CDBED341D1F526F0003E6A7 /* FAReleatedTagResponse.m in Sources */,
 				4CDBED2B1D1F3CBB0003E6A7 /* FAPhotos.m in Sources */,

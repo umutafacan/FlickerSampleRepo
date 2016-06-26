@@ -10,7 +10,7 @@
 
 @implementation ServiceManager
 
-#pragma  mark - Service URL
+#pragma  mark - Service URLS
 +(NSString *)baseServiceURL
 {
     return @"https://api.flickr.com/services/rest/?method=";
@@ -19,9 +19,11 @@
 
 +(NSString *)apiKeyAndMisc
 {
-    return 	@"&api_key=a87c295ff848833c0b7ef6cbe1a12f89&format=json&nojsoncallback=1";
+    return 	@"&api_key=88bd5dfe929c6beca0cf0cadf5efc6fe&format=json&nojsoncallback=1";
 }
 
+
+#pragma mark - AFManager Settings
 + (AFSecurityPolicy *)securityPolicy {
     
     return [AFSecurityPolicy defaultPolicy];
@@ -86,7 +88,7 @@
     
     return [NSString stringWithFormat:@"%@%@%@%@",[self baseServiceURL],
             @"flickr.photos.getRecent",
-            [NSString stringWithFormat:@"&per_page=10&page=%d",page],
+            [NSString stringWithFormat:@"&per_page=75&page=%d",page],
             [self apiKeyAndMisc]];
     
 }
@@ -122,17 +124,15 @@
 
 }
 
-#pragma mark - Search 
 
-
-
+#pragma mark - Search
 
 +(NSString *)urlGetSearchPhotosAtPage:(int)page withSearchText:(NSString *)text
 {
     
     return [NSString stringWithFormat:@"%@%@%@%@%@",[self baseServiceURL],
             @"flickr.photos.search",
-            [NSString stringWithFormat:@"&per_page=10&page=%d",page],
+            [NSString stringWithFormat:@"&per_page=75&page=%d",page],
             [NSString stringWithFormat:@"&text=%@",text],
             [self apiKeyAndMisc]];
     
@@ -260,7 +260,25 @@
     
 }
 
+#pragma mark - Helpers
 
++(NSURL *)urlOfPhoto:(FAPhoto *)photo
+{
+    /*
+     Example URL
+     https://farm1.staticflickr.com/2/1418878_1e92283336_m.jpg
+    
+    farm-id: 1
+    server-id: 2
+    photo-id: 1418878
+    secret: 1e92283336
+    size: m
+    
+    */
+
+    return [NSURL URLWithString:[NSString stringWithFormat:@"https://farm%d.staticflickr.com/%@/%@_%@_q.jpg",(int)photo.farm,photo.server,photo.photoIdentifier,photo.secret]];
+    
+}
 
 
 

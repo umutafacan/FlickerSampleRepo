@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "PhotoCollectionViewCell.h"
 #import "SVPullToRefresh.h"
+#import "SearchTableViewCell.h"
 
 @interface ViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UISearchBarDelegate,UITableViewDelegate,UITableViewDataSource>
 
@@ -18,16 +19,16 @@
 
 @property (nonatomic) int currentPage;
 
-
 @property (nonatomic,strong) NSMutableArray *arraySearch;
 
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UITableView *tableViewSearch;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *heightTableView;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *heightTableView;
 
 @property (nonatomic,strong) NSString *titleForSearchTable;
 
 @property (nonatomic,strong) NSString *searchText;
+@property (nonatomic) RetrieveMode retrieveMode;
 
 
 @end
@@ -43,7 +44,8 @@
     [self configureInfiniteScrolling];
     
     [self initializeServices];
-    
+    _tableViewSearch.translatesAutoresizingMaskIntoConstraints = NO;
+
     // Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -127,13 +129,22 @@
 
 -(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
-
+    if ([searchBar.text isEqualToString:@""]) {
+        [self getHottestTagsAnimated:NO];
+    }else
+    {
+        [self getReleatedTagsWith:searchBar.text animated:NO];
+    }
 
 }
 
 -(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
 {
-
+    searchBar.text=@"";
+    [self hideSearchTableViewWith:YES];
+    [searchBar resignFirstResponder];
+    
+    
 
 }
 
@@ -147,13 +158,19 @@
 
 -(void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
 {
-
+    if ([searchBar.text isEqualToString:@""]) {
+        [self getHottestTagsAnimated:YES];
+    }else
+    {
+        [self getReleatedTagsWith:searchBar.text animated:YES];
+    }
+    
 
 }
 
 -(void)searchBarTextDidEndEditing:(UISearchBar *)searchBar
 {
-
+    [self hideSearchTableViewWith:YES];
 
 }
 
@@ -162,8 +179,15 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell;
     
+    SearchTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"searchCell" forIndexPath:indexPath];
+    
+    if (cell && _arraySearch.count > indexPath.row ) {
+        
+        FATag *tag = [_arraySearch objectAtIndex:indexPath.row];
+        
+        [cell configureCellWithText:tag.content];
+    }
     return cell;
 
 }
@@ -189,9 +213,27 @@
 
 #pragma mark - Service Methods
 
+-(void)fetchForInfiniteScrolling
+{
+    switch (_retrieveMode) {
+        case RecentPhotoMode:
+            [self getRecentPhotosAtNextPage];
+            break;
+            
+        case SearchTextMode:
+            [self getNextPageForSearchText];
+            break;
+            
+        default:
+            break;
+    }
+
+}
+
 -(void)getRecentPhotos
 {
     
+    _retrieveMode = RecentPhotoMode;
     
     [ServiceManager getRecentPhotosWithCompletion:^(FARecentPhotosResponse *response) {
         _currentPage = response.photos.page;
@@ -232,6 +274,7 @@
 -(void)searchWithText:(NSString *)text {
     
     _searchText=text;
+    _retrieveMode = SearchTextMode;
     
     [ServiceManager getSearchPhotosAtPage:1 withSearchText:text
                            withCompletion:^(FARecentPhotosResponse *response) {
@@ -257,9 +300,9 @@
 
 -(void)getNextPageForSearchText{
     
-    _currentPage++;
     
-    [ServiceManager getSearchPhotosAtPage:_currentPage withSearchText:_searchText
+    
+    [ServiceManager getSearchPhotosAtPage:(_currentPage+1) withSearchText:_searchText
                            withCompletion:^(FARecentPhotosResponse *response) {
                                
                                _currentPage = response.photos.page;
@@ -281,24 +324,37 @@
 }
 
 
-
-
--(void)getReleatedTagsWith:(NSString*)text
+-(void)getReleatedTagsWith:(NSString*)text animated:(BOOL)animated
 {
 
     [ServiceManager getReleatedTagsListWith:text withCompletion:^(FAReleatedTagResponse *response) {
         
+        _arraySearch = [NSMutableArray arrayWithArray:response.tags.tag];
+        [self configureSearchTableForReleatedTags];
+        
+        [self showTableViewWith:animated];
+        [_tableViewSearch reloadData];
+
     } failure:^(NSError *error) {
+        
         
     }];
 }
 
--(void)getHottestTags
+-(void)getHottestTagsAnimated:(BOOL)animated
 {
 
     [ServiceManager getHotTagsListWithCompletion:^(FAHotTagResponse *response) {
         
+        _arraySearch = [NSMutableArray arrayWithArray:response.hottags.tag];
+        [self configureSearchTableForHottags];
+        [self showTableViewWith:animated];
+
+        [_tableViewSearch reloadData];
+
     } failure:^(NSError *error) {
+        
+        
         
     }];
 
@@ -309,7 +365,27 @@
 
 -(void)hideSearchTableViewWith:(BOOL)animated
 {
+    
+    for (NSLayoutConstraint *constraint in _tableViewSearch.constraints ) {
+        if (constraint.firstAttribute == NSLayoutAttributeHeight)
+            _heightTableView = constraint;
+    }
 
+    
+    [_tableViewSearch layoutIfNeeded];
+
+    
+    _heightTableView.constant = 0.0f;
+
+
+    [UIView animateWithDuration:0.3f animations:^{
+        
+        _tableViewSearch.alpha = 0.5;
+        [_tableViewSearch layoutIfNeeded];
+        
+    } completion:^(BOOL finished) {
+        _tableViewSearch.hidden=YES;
+    }];
     
     
     
@@ -317,7 +393,40 @@
 
 -(void)showTableViewWith:(BOOL)animated
 {
+    for (NSLayoutConstraint *constraint in _tableViewSearch.constraints ) {
+        if (constraint.firstAttribute == NSLayoutAttributeHeight)
+        {
+            _heightTableView = constraint;
+            break;
+        }
+    }
+    
+    
+    [_tableViewSearch layoutIfNeeded];
+    
+    _tableViewSearch.hidden=NO;
+    
+    if (_arraySearch.count > 8) {
+        _heightTableView.constant = (30*8 + 30);
+    }
+    else
+    {
+        _heightTableView.constant = (30*_arraySearch.count + 30);
+    }
+    
+    
+    if (animated) {
+        _tableViewSearch.alpha = 0.5;
+    }
 
+    [UIView animateWithDuration:0.5f animations:^{
+    
+        _tableViewSearch.alpha = 1;
+        [_tableViewSearch layoutIfNeeded];
+        
+    } completion:^(BOOL finished) {
+        
+    }];
     
     
 
@@ -325,14 +434,14 @@
 
 -(void)configureSearchTableForHottags
 {
-    
+    _titleForSearchTable = @"Hot Tags";
 
     
 }
 
 -(void)configureSearchTableForReleatedTags
 {
-
+    _titleForSearchTable = @"Releated Tags";
 
 }
 

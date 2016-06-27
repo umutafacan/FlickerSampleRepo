@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSInteger,RetrieveMode)
+{
+    RecentPhotoMode = 1,
+    SearchTextMode
+};
+
 @interface ViewController : UIViewController
 
 

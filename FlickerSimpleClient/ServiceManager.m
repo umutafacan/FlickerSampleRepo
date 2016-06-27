@@ -221,7 +221,7 @@
     
     return [NSString stringWithFormat:@"%@%@%@%@%@",
             [self baseServiceURL],
-            @"flickr.tags.getHotList",
+            @"flickr.tags.getRelated",
             @"&tag=",
             tag,
             [self apiKeyAndMisc]];

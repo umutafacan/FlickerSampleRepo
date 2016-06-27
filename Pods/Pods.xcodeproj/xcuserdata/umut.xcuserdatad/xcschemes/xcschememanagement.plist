@@ -24,6 +24,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>IQKeyboardManager.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-FlickerSimpleClient.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -47,6 +52,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>3681D4281E6B16F44160F139B79C4AEE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>410B25DF16EA5C5B3E2698F74F9625FB</key>
 		<dict>
 			<key>primary</key>
@@ -62,17 +72,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>68250F2F5FFEC327918604DEA4CF3865</key>
+		<key>C9325AFB8B44BB3CD7F0C8F86CCA04DF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>961A7F9039DC359B43096FFA15437089</key>
+		<key>D0D0C9D20C43FA94D4C88FBFE2601B8E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AC8C4A92EFBBEAB8D593F556E605EC73</key>
+		<key>E49A52B0C0C86AE167C1D8EB8043E39B</key>
 		<dict>
 			<key>primary</key>
 			<true/>

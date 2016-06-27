@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '523D77D103A8AF100017E495A00201A3'
+               BlueprintIdentifier = '56CE5B23590333031D9420C4'
                BlueprintName = 'CWPopup'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libCWPopup.a'>

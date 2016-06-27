@@ -210,17 +210,12 @@
         [self getHottestTagsAnimated:YES];
     }else
     {
-        [self getReleatedTagsWith:searchBar.text animated:YES];
     }
     
 
 }
 
--(void)searchBarTextDidEndEditing:(UISearchBar *)searchBar
-{
-    [self hideSearchTableViewWith:YES];
 
-}
 
 
 #pragma mark - TableView Delegates

@@ -172,12 +172,7 @@
 
 #pragma mark - Search Bar Delegates
 
--(BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar
-{
 
-    return YES;
-    
-}
 
 
 -(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
@@ -253,9 +248,10 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     SearchTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    [self searchWithText:cell.labelTag.text];
     [self hideSearchTableViewWith:YES];
     [_searchBar resignFirstResponder];
+    [self searchWithText:cell.labelTag.text];
+
 
 }
 
@@ -362,7 +358,7 @@
                                
                            }];
     
-    }];
+   }];
 }
 
 
@@ -458,6 +454,7 @@
         _tableViewSearch.hidden=YES;
     }];
     
+    _tableViewSearch.hidden=YES;
     
     
 }

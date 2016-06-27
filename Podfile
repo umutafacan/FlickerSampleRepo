@@ -9,9 +9,10 @@ target 'FlickerSimpleClient' do
 pod 'PureLayout'
 pod 'SVPullToRefresh'
 pod 'DRPLoadingSpinner'
-pod 'CWPopup', '~> 1.2.4'
 pod 'DFImageManager'
 pod 'IQKeyboardManager'
+pod 'JTSImageViewController'
+pod 'STPopup'
 
 
 # Networking

@@ -11,12 +11,13 @@
 #import "SVPullToRefresh.h"
 #import "SearchTableViewCell.h"
 
-@interface ViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UISearchBarDelegate,UITableViewDelegate,UITableViewDataSource>
+@interface ViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UISearchBarDelegate,UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @property (nonatomic,strong) NSMutableArray *arrayPhotos;
 
+@property (weak, nonatomic) IBOutlet UIButton *buttonScrollToTop;
 @property (nonatomic) int currentPage;
 
 @property (nonatomic,strong) NSMutableArray *arraySearch;
@@ -30,6 +31,10 @@
 @property (nonatomic,strong) NSString *searchText;
 @property (nonatomic) RetrieveMode retrieveMode;
 
+- (IBAction)buttonScrollToTopTapped:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *buttonRecentPhotos;
+
+- (IBAction)buttonRecentPhotosTapped:(id)sender;
 
 @end
 
@@ -67,6 +72,8 @@
     [_collectionView addInfiniteScrollingWithActionHandler:^{
         [self getRecentPhotosAtNextPage];
     }];
+    
+    [_collectionView.infiniteScrollingView setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleWhite];
     
 }
 
@@ -115,7 +122,31 @@
 
 }
 
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    if (scrollView == _collectionView) {
+        [_searchBar resignFirstResponder];
+    }
 
+}
+
+
+-(void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset
+{
+    if (scrollView == _collectionView) {
+        if (velocity.y < -2.5) {
+            //show
+            _buttonScrollToTop.hidden=NO;
+        }else if (velocity.y > 0)
+        {
+            //hide
+            _buttonScrollToTop.hidden=YES;
+            
+        }
+    }
+    
+
+}
 
 #pragma mark - Search Bar Delegates
 
@@ -199,14 +230,17 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
+    SearchTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    [self searchWithText:cell.labelTag.text];
+    [self hideSearchTableViewWith:YES];
+    [_searchBar resignFirstResponder];
 
 }
 
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    return @"Hot Tags";
+    return _titleForSearchTable;
 
 }
 
@@ -234,7 +268,8 @@
 {
     
     _retrieveMode = RecentPhotoMode;
-    
+    [_collectionView setContentOffset:CGPointMake(_collectionView.contentOffset.x, 0)];
+
     [ServiceManager getRecentPhotosWithCompletion:^(FARecentPhotosResponse *response) {
         _currentPage = response.photos.page;
         
@@ -275,7 +310,8 @@
     
     _searchText=text;
     _retrieveMode = SearchTextMode;
-    
+    [_collectionView setContentOffset:CGPointMake(_collectionView.contentOffset.x, 0)];
+
     [ServiceManager getSearchPhotosAtPage:1 withSearchText:text
                            withCompletion:^(FARecentPhotosResponse *response) {
                                
@@ -376,11 +412,14 @@
 
     
     _heightTableView.constant = 0.0f;
+    
+    CGRect frame = _tableViewSearch.frame;
+    frame.size.height=0;
 
-
-    [UIView animateWithDuration:0.3f animations:^{
+    [UIView animateWithDuration:0.1f animations:^{
         
         _tableViewSearch.alpha = 0.5;
+        [_tableViewSearch setFrame:frame];
         [_tableViewSearch layoutIfNeeded];
         
     } completion:^(BOOL finished) {
@@ -446,9 +485,17 @@
 }
 
 
+#pragma mark - IBActions
 
 
-
-
+- (IBAction)buttonScrollToTopTapped:(id)sender {
+    [_collectionView setContentOffset:CGPointMake(_collectionView.contentOffset.x, 0) animated:YES];
+    _buttonScrollToTop.hidden=YES;
+    
+}
+- (IBAction)buttonRecentPhotosTapped:(id)sender {
+    [self getRecentPhotos];
+    
+}
 @end
 

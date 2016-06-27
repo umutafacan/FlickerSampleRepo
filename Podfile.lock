@@ -20,7 +20,6 @@ PODS:
   - AFNetworking/UIKit (2.6.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - CWPopup (1.2.6)
   - DFImageManager (2.0.1):
     - DFImageManager/Core (= 2.0.1)
     - DFImageManager/UI (= 2.0.1)
@@ -29,25 +28,29 @@ PODS:
     - DFImageManager/Core
   - DRPLoadingSpinner (0.1.0)
   - IQKeyboardManager (4.0.4)
+  - JTSImageViewController (1.5.1)
   - PureLayout (3.0.1)
+  - STPopup (1.7.0)
   - SVPullToRefresh (0.4.1)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
-  - CWPopup (~> 1.2.4)
   - DFImageManager
   - DRPLoadingSpinner
   - IQKeyboardManager
+  - JTSImageViewController
   - PureLayout
+  - STPopup
   - SVPullToRefresh
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
-  CWPopup: 3f8b0704a9914813d90372d66525d31f24b27d49
   DFImageManager: c19b62a3e15d89f3532ae6fdb222531ec7e811b1
   DRPLoadingSpinner: 47cb1c2e47ae2617c87c8340075a24d94a48d879
   IQKeyboardManager: 4a6f83b540283c2645aaeba2bd8dc0f09b5c77f8
+  JTSImageViewController: 1f8ce1cc93dab0d0af8e53badeea7528560cfec9
   PureLayout: f35f5384c9c4e4479df041dbe33ad7577b71ddfb
+  STPopup: 36b45120f51ab3cdf7a10c1b9032b7fc8eef75ac
   SVPullToRefresh: ba2e718695a43253d8bea6852d2960097dc15d8c
 
 COCOAPODS: 0.39.0

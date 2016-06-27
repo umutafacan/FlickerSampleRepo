@@ -9,11 +9,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>CWPopup.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>DFImageManager.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -29,12 +24,22 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>JTSImageViewController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-FlickerSimpleClient.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>PureLayout.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>STPopup.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -47,12 +52,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>20ACF1E2C4D9743AD3E864FFAC1B0516</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>2995B8EB31145E321C564C4C0222D274</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3681D4281E6B16F44160F139B79C4AEE</key>
+		<key>2E9A6719DA8640DB5FFA285548D5E0D2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -62,7 +72,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>523D77D103A8AF100017E495A00201A3</key>
+		<key>4D25B94A07EAFCC359DE3BE764243E54</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -72,17 +82,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C9325AFB8B44BB3CD7F0C8F86CCA04DF</key>
+		<key>7EDBC06B3D447B9192D12E139BD4ACFE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C2C8D09A942504B05592B1606696C432</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>D0D0C9D20C43FA94D4C88FBFE2601B8E</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E49A52B0C0C86AE167C1D8EB8043E39B</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -49,7 +49,7 @@
 +(NSString *)urlGetRecentPhotos
 {
     
-    return [NSString stringWithFormat:@"%@%@%@",[self baseServiceURL],@"flickr.photos.getRecent",[self apiKeyAndMisc]];
+    return [NSString stringWithFormat:@"%@%@%@%@",[self baseServiceURL],@"flickr.photos.getRecent",[NSString stringWithFormat:@"&per_page=50&page=%d",1],[self apiKeyAndMisc]];
     
 }
 
@@ -88,7 +88,7 @@
     
     return [NSString stringWithFormat:@"%@%@%@%@",[self baseServiceURL],
             @"flickr.photos.getRecent",
-            [NSString stringWithFormat:@"&per_page=75&page=%d",page],
+            [NSString stringWithFormat:@"&per_page=50&page=%d",page],
             [self apiKeyAndMisc]];
     
 }
@@ -132,7 +132,7 @@
     
     return [NSString stringWithFormat:@"%@%@%@%@%@",[self baseServiceURL],
             @"flickr.photos.search",
-            [NSString stringWithFormat:@"&per_page=75&page=%d",page],
+            [NSString stringWithFormat:@"&per_page=50&page=%d",page],
             [NSString stringWithFormat:@"&text=%@",text],
             [self apiKeyAndMisc]];
     

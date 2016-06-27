@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'FA68C3DF9AB1E2F12D9EFF86'
+               BlueprintIdentifier = '28423E90CA8D1123EAB740B7'
                BlueprintName = 'Pods-FlickerSimpleClient'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libPods-FlickerSimpleClient.a'>

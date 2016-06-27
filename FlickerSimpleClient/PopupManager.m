@@ -58,8 +58,9 @@
     _currentPopup = popupController;
     //    [self.arrayPopup addObject:popupController];
     
-    
 }
+
+
 -(void)hideCurrentPopup
 {
     [_currentPopup dismiss];

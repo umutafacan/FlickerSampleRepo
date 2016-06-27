@@ -280,6 +280,24 @@
     
 }
 
++(NSURL *)urlBigPhoto:(FAPhoto *)photo
+{
+    /*
+     Example URL
+     https://farm1.staticflickr.com/2/1418878_1e92283336_m.jpg
+     
+     farm-id: 1
+     server-id: 2
+     photo-id: 1418878
+     secret: 1e92283336
+     size: m
+     
+     */
+    
+    return [NSURL URLWithString:[NSString stringWithFormat:@"https://farm%d.staticflickr.com/%@/%@_%@_h.jpg",(int)photo.farm,photo.server,photo.photoIdentifier,photo.secret]];
+    
+}
+
 
 
 

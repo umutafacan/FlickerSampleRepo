@@ -10,6 +10,7 @@
 #import "PhotoCollectionViewCell.h"
 #import "SVPullToRefresh.h"
 #import "SearchTableViewCell.h"
+#import <JTSImageViewController/JTSImageViewController.h>
 
 @interface ViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UISearchBarDelegate,UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>
 
@@ -90,7 +91,23 @@
 #pragma mark - CollectionView Delegates
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-
+    PhotoCollectionViewCell *cell = (PhotoCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    
+    
+    // Create image info
+    JTSImageInfo *imageInfo = [[JTSImageInfo alloc] init];
+    imageInfo.imageURL = [ServiceManager urlBigPhoto:cell.photo];
+    imageInfo.referenceRect = cell.frame;
+    imageInfo.referenceView = cell.superview;
+    
+    // Setup view controller
+    JTSImageViewController *imageViewer = [[JTSImageViewController alloc]
+                                           initWithImageInfo:imageInfo
+                                           mode:JTSImageViewControllerMode_Image
+                                           backgroundStyle:JTSImageViewControllerBackgroundOption_Scaled];
+    
+    // Present the view controller.
+    [imageViewer showFromViewController:self transition:JTSImageViewControllerTransition_FromOriginalPosition];
 
 }
 
@@ -485,6 +502,8 @@
 }
 
 
+
+
 #pragma mark - IBActions
 
 
@@ -497,5 +516,8 @@
     [self getRecentPhotos];
     
 }
+
+
+
 @end
 

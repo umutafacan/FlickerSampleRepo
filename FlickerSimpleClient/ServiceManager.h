@@ -41,6 +41,7 @@ typedef void  (^failure)(NSError *error);
 //returns a url from photo object
 +(NSURL *)urlOfPhoto:(FAPhoto *)photo;
 
++(NSURL *)urlBigPhoto:(FAPhoto *)photo;
 
 
 

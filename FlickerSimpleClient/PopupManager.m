@@ -56,7 +56,6 @@
     popupController.containerView.layer.cornerRadius = 25.0f;
     [popupController presentInViewController:host completion:completion] ;
     _currentPopup = popupController;
-    //    [self.arrayPopup addObject:popupController];
     
 }
 

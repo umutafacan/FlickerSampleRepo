@@ -14,27 +14,25 @@
 
 @interface ViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UISearchBarDelegate,UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>
 
+//IBOUTLETS
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-
-@property (nonatomic,strong) NSMutableArray *arrayPhotos;
-
 @property (weak, nonatomic) IBOutlet UIButton *buttonScrollToTop;
-@property (nonatomic) int currentPage;
-
-@property (nonatomic,strong) NSMutableArray *arraySearch;
-
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UITableView *tableViewSearch;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *heightTableView;
-
-@property (nonatomic,strong) NSString *titleForSearchTable;
-
-@property (nonatomic,strong) NSString *searchText;
-@property (nonatomic) RetrieveMode retrieveMode;
-
-- (IBAction)buttonScrollToTopTapped:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *buttonRecentPhotos;
 
+//Variables
+@property (nonatomic) int currentPage;
+@property (nonatomic,strong) NSMutableArray *arrayPhotos;
+@property (nonatomic,strong) NSMutableArray *arraySearch;
+@property (nonatomic,strong) NSString *titleForSearchTable;
+@property (nonatomic,strong) NSString *searchText;
+@property (nonatomic) RetrieveMode retrieveMode;
+@property (nonatomic) BOOL isServiceInitialized;
+
+//IBACTIONS
+- (IBAction)buttonScrollToTopTapped:(id)sender;
 - (IBAction)buttonRecentPhotosTapped:(id)sender;
 
 @end
@@ -49,10 +47,17 @@
     
     [self configureInfiniteScrolling];
     
-    [self initializeServices];
     _tableViewSearch.translatesAutoresizingMaskIntoConstraints = NO;
 
     // Do any additional setup after loading the view, typically from a nib.
+}
+-(void)viewDidAppear:(BOOL)animated
+{
+    if (!_isServiceInitialized) {
+        [self initializeServices];
+    }
+    
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -63,7 +68,11 @@
 #pragma mark - INITIALIZERS
 -(void)initializeServices
 {
+    _isServiceInitialized=YES;
     [self getRecentPhotos];
+
+   
+    
     
 }
 
@@ -124,12 +133,8 @@
     
     
     PhotoCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PhotoCollectionViewCell" forIndexPath:indexPath];
-    
-    
-    
+
     if (cell) {
-    
-        //NSUInteger index = indexPath.row * _numberOfColumns  + indexPath.section;
         
         [cell configureCellWithPhoto:[self.arrayPhotos objectAtIndex:indexPath.row]];
         
@@ -282,7 +287,8 @@
 }
 
 -(void)getRecentPhotos
-{
+{ [[PopupManager sharedManager]showLoading:self completion:^{
+
     
     _retrieveMode = RecentPhotoMode;
     [_collectionView setContentOffset:CGPointMake(_collectionView.contentOffset.x, 0)];
@@ -295,15 +301,21 @@
         }
         _arrayPhotos = [NSMutableArray arrayWithArray:response.photos.photo];
         [_collectionView reloadData];
+        [self animateButtonToShrink];
         
+        [[PopupManager sharedManager] removeAllPopups];
     } failure:^(NSError *error) {
-        
+        [[PopupManager sharedManager] removeAllPopups];
+
     }];
     
+}];
+   
 }
 
 -(void)getRecentPhotosAtNextPage
 {
+    
     
     [ServiceManager getRecentPhotosAtPage:(_currentPage+1) withCompletion:^(FARecentPhotosResponse *response) {
         _currentPage = response.photos.page;
@@ -325,6 +337,9 @@
 
 -(void)searchWithText:(NSString *)text {
     
+    [[PopupManager sharedManager]showLoading:self completion:^{
+        
+    
     _searchText=text;
     _retrieveMode = SearchTextMode;
     [_collectionView setContentOffset:CGPointMake(_collectionView.contentOffset.x, 0)];
@@ -339,15 +354,15 @@
                                }
                                _arrayPhotos = [NSMutableArray arrayWithArray:response.photos.photo];
                                [_collectionView reloadData];
-  
+                               [[PopupManager sharedManager]removeAllPopups];
                                
                                
                            } failure:^(NSError *error) {
-                               
+                               [[PopupManager sharedManager]removeAllPopups];
                                
                            }];
     
-
+    }];
 }
 
 
@@ -483,25 +498,19 @@
     } completion:^(BOOL finished) {
         
     }];
-    
-    
 
 }
+
 
 -(void)configureSearchTableForHottags
 {
     _titleForSearchTable = @"Hot Tags";
-
-    
 }
 
 -(void)configureSearchTableForReleatedTags
 {
     _titleForSearchTable = @"Releated Tags";
-
 }
-
-
 
 
 #pragma mark - IBActions
@@ -512,12 +521,50 @@
     _buttonScrollToTop.hidden=YES;
     
 }
+
 - (IBAction)buttonRecentPhotosTapped:(id)sender {
+    [self animateHomeButtonToExpand];
     [self getRecentPhotos];
-    
 }
 
 
+-(void)animateHomeButtonToExpand
+{
+    _buttonRecentPhotos.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.001, 0.001);
+    
+    [UIView animateWithDuration:0.3/1.5 animations:^{
+        _buttonRecentPhotos.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.1, 1.1);
+    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:0.3/2 animations:^{
+            _buttonRecentPhotos.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.9, 0.9);
+        } completion:^(BOOL finished) {
+            [UIView animateWithDuration:0.3/2 animations:^{
+                _buttonRecentPhotos.transform = CGAffineTransformIdentity;
+            }];
+        }];
+    }];
+
+    /*
+    [UIView animateWithDuration:0.4 animations:^{
+    
+        _buttonRecentPhotos.transform = CGAffineTransformMakeScale(40, 40);
+    
+    } completion:^(BOOL finished) {
+        
+    }];
+     */
+
+}
+
+-(void)animateButtonToShrink
+{
+  /*  [UIView animateWithDuration:0.4 animations:^{
+        _buttonRecentPhotos.transform = CGAffineTransformIdentity;
+    } completion:^(BOOL finished) {
+        
+    }];
+   */
+}
 
 @end
 

@@ -17,7 +17,7 @@
 
 #import "DataModels.h"
 #import "ServiceManager.h"
-#import <STPopup/STPopup.h>
+#import "PopupManager.h"
 
 //constants
 

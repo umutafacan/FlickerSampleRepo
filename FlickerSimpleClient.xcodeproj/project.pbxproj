@@ -233,8 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				4C1B083A1D20BFBA00CD6488 /* SwiftCategories */,
-				4CFD0C1F1D20C3FD00727175 /* PopupManager.h */,
-				4CFD0C201D20C3FD00727175 /* PopupManager.m */,
+				4CFD0C221D20C79300727175 /* PopupManager */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -265,6 +264,15 @@
 				4CFD0C1B1D20C27700727175 /* LoadingPopupViewController.xib */,
 			);
 			name = Loading;
+			sourceTree = "<group>";
+		};
+		4CFD0C221D20C79300727175 /* PopupManager */ = {
+			isa = PBXGroup;
+			children = (
+				4CFD0C1F1D20C3FD00727175 /* PopupManager.h */,
+				4CFD0C201D20C3FD00727175 /* PopupManager.m */,
+			);
+			name = PopupManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -22,6 +22,8 @@ typedef void (^showCompletion)(void);
 @property (nonatomic) BOOL isPopupActive;
 @property (nonatomic,strong) UIViewController *popupVC;
 
+-(void)showLoading:(UIViewController*)host completion:(showCompletion)completion;
+-(void)removeAllPopups;
 
 
 @end

@@ -1,6 +1,5 @@
 # flickerSampleRepo
 
-  * This project is an exercise project for Job interview. Because the documentation of exercise is confidential, it can not found on this repo.
   * The overview of application is a simple flickr client which has some features listed below:
   * Displaying recent photos
   * Searching photos with a text

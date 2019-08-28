@@ -1,4 +1,4 @@
-# flickerSampleRepo
+# FlickerSampleRepo
 
   * The overview of application is a simple flickr client which has some features listed below:
   * Displaying recent photos
